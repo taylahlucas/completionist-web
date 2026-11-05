@@ -1,27 +1,30 @@
-/* Dark mode palette */
-export const black = "#1D1F24";
-export const darkGrey = "#303338";
-export const midGrey = "#68696D";
-export const lightGrey = "#BBBBBB";
-export const lightestGrey = "#E8E8E8";
+/* Palette synced with the Completionist app theme. */
+export const surfacePrimary = "#17171D";
+export const surfaceSecondary = "#272730";
+export const surfaceCard = "#1E1E26";
 
-export const primaryPurple = "#5231F5";
-export const lightPurple = "#6B72FF";
-export const darkPurple = "#23244B";
+export const textPrimary = "#F0EFF8";
+export const textSecondary = "#9B9AAF";
+export const textMuted = "#5A5970";
 
-export const lightGreen = "#68C2A2";
-export const errorRed = "#DC143C";
+export const accentViolet = "#6C5CE7";
+export const accentLightViolet = "#6B72FF";
+export const accentGold = "#E8A045";
+export const accentLightGold = "#FFD700";
+export const accentGreen = "#3BD16F";
+export const accentRed = "#E85555";
 
 export const theme = {
-  black: black,
-  darkGrey: darkGrey,
-  midGrey: midGrey,
-  lightGrey: lightGrey,
-  lightestGrey: lightestGrey,
-
-  primaryPurple: primaryPurple,
-  lightPurple: lightPurple,
-  darkPurple: darkPurple,
-  lightGreen: lightGreen,
-	error: errorRed
-}
+	surfacePrimary,
+	surfaceSecondary,
+	surfaceCard,
+	textPrimary,
+	textSecondary,
+	textMuted,
+	accentViolet,
+	accentLightViolet,
+	accentGold,
+	accentLightGold,
+	accentGreen,
+	accentRed,
+};

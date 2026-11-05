@@ -1,23 +1,36 @@
-import * as React from 'react';
+import * as React from "react";
 
 interface ButtonProps {
 	title: string;
-	href?: string;
-	onPress: () => void;
+	icon?: string;
+	onPress?: () => void;
+	variant?: "primary" | "secondary";
+	compact?: boolean;
+	disabled?: boolean;
+	note?: string;
 }
 
-const iconStyle = {
-	paddingRight: 8,
-	alignSelf: 'center'
-}
-
-const Button = ({ title, href, onPress }: ButtonProps) => (
-	<div style={{ display: 'inline-block', padding: 6, flexShrink: 0 }}>
-	<div className="button row" onClick={onPress}>
-		<h3 className="buttonTitle heading-light">{title}</h3>
-		{href && <img style={iconStyle} src={href} color='white' width={30} height={30} />}
-	</div>
-	</div>
+const Button = ({
+	title,
+	icon,
+	onPress,
+	variant = "primary",
+	compact = false,
+	disabled = false,
+	note,
+}: ButtonProps) => (
+	<button
+		type="button"
+		className={`btn btn--${variant}${compact ? " btn--compact" : ""}`}
+		onClick={onPress}
+		disabled={disabled}
+	>
+		{icon && <img src={icon} alt="" width={20} height={20} />}
+		<span className="btn-copy">
+			<span>{title}</span>
+			{note && <span className="btn-note">{note}</span>}
+		</span>
+	</button>
 );
 
 export default Button;

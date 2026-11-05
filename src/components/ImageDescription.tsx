@@ -1,25 +1,26 @@
-import * as React from 'react';
-import { imageMap, imageMapKey } from '../utils/imageMap';
+import * as React from "react";
+import { imageMap, imageMapKey } from "../utils/imageMap";
 
-interface ImageDescription {
+interface ImageDescriptionProps {
 	id: imageMapKey;
 	title: string;
 	description: string;
+	index: number;
 }
 
-const ImageDescription = ({ id, title, description }: ImageDescription) => (
-	<div key={id} style={{ width: 300 }}>
-		<h3 style={{ textAlign: 'left', height: 20 }}>{title}</h3>
-		<p style={{ width: 300, height: 52 }}>{description}</p>
-		<div className="item">
-			<img
-				src={imageMap[id]}
-				alt="Example"
-				width={300}
-				height={400}
-			/>
+const accents = ["violet", "gold", "green"] as const;
+
+const ImageDescription = ({ id, title, description, index }: ImageDescriptionProps) => (
+	<article className={`feature feature--${accents[index % accents.length]}`}>
+		<div className="feature-copy">
+			<span className="feature-index">0{index + 1}</span>
+			<h3>{title}</h3>
+			<p>{description}</p>
 		</div>
-	</div>
+		<div className="feature-frame">
+			<img src={imageMap[id]} alt={title} />
+		</div>
+	</article>
 );
 
 export default ImageDescription;

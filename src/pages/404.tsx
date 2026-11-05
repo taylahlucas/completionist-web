@@ -1,49 +1,47 @@
-import * as React from "react"
-import { Link, HeadFC, PageProps } from "gatsby"
-
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+import * as React from "react";
+import { Link, HeadFC, PageProps } from "gatsby";
+import "../assets/global.css";
 
 const NotFoundPage: React.FC<PageProps> = () => {
-  return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
-}
+	return (
+		<main className="not-found">
+			<div className="not-found-card">
+				<span className="wordmark" style={{ justifyContent: "center" }}>
+					<span className="logo-mark" aria-hidden="true">
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+							<path
+								d="M5 12.5 9.2 16.8 19 7.2"
+								stroke="currentColor"
+								strokeWidth="2.6"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+							/>
+						</svg>
+					</span>
+					<span>
+						Completionist<span className="dot">.</span>
+					</span>
+				</span>
+				<h1>Page not found</h1>
+				<p>That page isn’t part of the journey.</p>
+				<Link className="text-link" to="/">
+					Back to Completionist
+				</Link>
+			</div>
+		</main>
+	);
+};
 
-export default NotFoundPage
+export default NotFoundPage;
 
-export const Head: HeadFC = () => <title>Not found</title>
+export const Head: HeadFC = () => (
+	<>
+		<title>Page not found · Completionist</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</>
+);
